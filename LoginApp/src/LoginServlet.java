@@ -2,12 +2,14 @@
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dto.User;
 import service.LoginService;
 
 /**
@@ -35,8 +37,13 @@ public class LoginServlet extends HttpServlet {
 		LoginService loginservice=new LoginService();
 		boolean result=loginservice.authenticate(userId, password);
 		if(result){
-			response.sendRedirect("success.jsp");
-			return ;
+		    User user=loginservice.getUserDetails(userId);
+		    request.getSession().setAttribute("user", user);
+		    response.sendRedirect("success.jsp");
+			//RequestDispatcher dispatcher=request.getRequestDispatcher("success.jsp");
+			//dispatcher.forward(request, response);
+			
+		    return ;
 		}
 		else{
 			response.sendRedirect("login.jsp");
