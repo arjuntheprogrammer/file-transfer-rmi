@@ -8,9 +8,14 @@
 </head>
 <body>
 <jsp:useBean id="user" class="dto.User" scope="request">
-	<jsp:setProperty property="userName" name="user" param="userName"/>
+	<jsp:setProperty property="*" name="user" />
 	</jsp:useBean>
 	<br>hello  <jsp:getProperty property="userName" name="user"/>
+	<br>Address1  <jsp:getProperty property="address1" name="user"/>
+	<br>Address2 <jsp:getProperty property="address2" name="user"/>
+	<br>City   <jsp:getProperty property="city" name="user"/>
+	<br>state  <jsp:getProperty property="state" name="user"/>
+	<br>pincode  <jsp:getProperty property="pincode" name="user"/>
 		
 </body>
 </html>
