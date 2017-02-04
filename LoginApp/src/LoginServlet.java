@@ -38,10 +38,15 @@ public class LoginServlet extends HttpServlet {
 		boolean result=loginservice.authenticate(userId, password);
 		if(result){
 		    User user=loginservice.getUserDetails(userId);
-		    request.getSession().setAttribute("user", user);
-		    response.sendRedirect("success.jsp");
-			//RequestDispatcher dispatcher=request.getRequestDispatcher("success.jsp");
-			//dispatcher.forward(request, response);
+		    //request.getSession().setAttribute("user", user);
+		    //response.sendRedirect("success.jsp");
+			
+		    //we are now passing request and response to success.jsp
+		    //instead of redirecting to success.jsp and getting value form session
+		    
+		    request.setAttribute("user", user);
+		    RequestDispatcher dispatcher=request.getRequestDispatcher("success.jsp");
+			dispatcher.forward(request, response);
 			
 		    return ;
 		}
