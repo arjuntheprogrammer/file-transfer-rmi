@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="swt.jar" sourcepath="src.zip">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="org.eclipse.swt"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="var" path="ECLIPSE_HOME/plugins/org.eclipse.core.commands_3.8.0.v20160316-1921.jar"/>
+	<classpathentry exported="true" kind="var" path="ECLIPSE_HOME/plugins/org.eclipse.core.commands.source_3.8.0.v20160316-1921.jar"/>
+	<classpathentry exported="true" kind="var" path="ECLIPSE_HOME/plugins/org.eclipse.equinox.common_3.8.0.v20160509-1230.jar"/>
+	<classpathentry exported="true" kind="var" path="ECLIPSE_HOME/plugins/org.eclipse.equinox.common.source_3.8.0.v20160509-1230.jar"/>
+	<classpathentry exported="true" kind="var" path="ECLIPSE_HOME/plugins/org.eclipse.jface_3.12.0.v20160518-1929.jar"/>
+	<classpathentry exported="true" kind="var" path="ECLIPSE_HOME/plugins/org.eclipse.jface_3.12.1.v20160923-1528.jar"/>
+	<classpathentry exported="true" kind="var" path="ECLIPSE_HOME/plugins/org.eclipse.osgi_3.11.1.v20160708-1632.jar"/>
+	<classpathentry exported="true" kind="var" path="ECLIPSE_HOME/plugins/org.eclipse.osgi_3.11.2.v20161107-1947.jar"/>
+	<classpathentry exported="true" kind="var" path="ECLIPSE_HOME/plugins/org.eclipse.ui.workbench_3.108.1.v20160819-2118.jar"/>
+	<classpathentry exported="true" kind="var" path="ECLIPSE_HOME/plugins/org.eclipse.ui.workbench_3.108.2.v20161025-2029.jar"/>
+	<classpathentry exported="true" kind="var" path="ECLIPSE_HOME/plugins/org.eclipse.ui.workbench.source_3.108.2.v20161025-2029.jar"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
