@@ -52,45 +52,39 @@ public class Client{
 	*/
 	
 	public static Tree input(Tree tree,int n, JSONObject obj){
-		if(obj.get("type").toString()=="file"){
+		
+		if(obj.get("type").toString().equals("file")){ 
 			
 		}
 		else{
 			
 			JSONArray a=(JSONArray)obj.get("subDir");
-			//if(a.length!=0)
 			for(Object o:a){
 				JSONObject obj1=(JSONObject) o; 
-				 TreeItem	 treeItem0 = new TreeItem(tree, 0);
-			     treeItem0.setText("Level "+(n+1) +" Item " );
-			     treeItem0=input_(treeItem0,n+1,obj1);
+				TreeItem	 treeItem0 = new TreeItem(tree, 0);
+				input_(treeItem0,n+1,obj1);
 			}
-			
 		}
-		
 		return tree;
 	}
 	
-	public static TreeItem input_ (TreeItem treeitem,int n,JSONObject obj){
+	public static void input_ (TreeItem treeitem,int n,JSONObject obj){
 		treeitem.setText(obj.get("name").toString() );
 		treeitem.setData(obj);
-		if(obj.get("type").toString()=="file"){ 
-			
+		if(obj.get("type").toString().equals("file")){ 
+		
 		}
 		else{
-			
+			System.out.println("heree");
 			JSONArray a=(JSONArray)obj.get("subDir");
-			//if(a.length!=0)
 			for(Object o:a){
 				JSONObject obj1=(JSONObject) o; 
 				 TreeItem treeItem0 = new TreeItem(treeitem, 0);
-			     treeItem0=input_(treeItem0,n+1,obj1);
+				 input_(treeItem0, n+1, obj1);
 			}
 			
 		}
 		
-		
-		return treeitem;
 	}
 	
 	
@@ -112,7 +106,7 @@ public class Client{
     String name="dir";
     try {
     	Interface fi = (Interface) Naming.lookup(name);
-    	JSONObject obj = (JSONObject)fi.printFnames ("/media/arjun/46A6A679A6A668DF/Users/arjun gupta/Documents/ethical hacking");
+    	JSONObject obj = (JSONObject)fi.printFnames ("/home/arjun/Documents/eclipse/workspace/MyLayout/");
     	System.out.println("json object="+obj);
     	TimeUnit.SECONDS.sleep(3);
     	tree=input(tree,0, obj);
@@ -124,34 +118,34 @@ public class Client{
      
     
 
-//    tree.addListener(SWT.Selection, new Listener() {
-//      public void handleEvent(Event event) {
-//        if (event.detail == SWT.CHECK) {
-//          String string="";
-//          //JSONObject o = (JSONObject)tree.getSelection();
-//          /*TreeItem[] selection = tree.getSelection();
-//          for (int i = 0; i < selection.length; i++)
-//              string += selection[i].getText().toString() + " ";
-//            System.out.println("Selection={" + string + "}");	
-//          */
-//          TreeItem item = (TreeItem) event.item;
-//          TreeItem t;
-//          String path=item.getText();
-//          
-//          t=item.getParentItem();
-//          while(t!=null)
-//          {
-//        	  path=t.getText()+"\\"+path;
-//        	  t=t.getParentItem();
-//          }
-//          System.out.println(path);
-//          
-//          //text.setText(o.get("name").toString() + " was checked.");
-//        } else {
-//          text.setText(event.item + " was selected");
-//        }
-//      }
-//    });
+    tree.addListener(SWT.Selection, new Listener() {
+      public void handleEvent(Event event) {
+        if (event.detail == SWT.CHECK) {
+          String string="";
+          //JSONObject o = (JSONObject)tree.getSelection();
+          /*TreeItem[] selection = tree.getSelection();
+          for (int i = 0; i < selection.length; i++)
+              string += selection[i].getText().toString() + " ";
+            System.out.println("Selection={" + string + "}");	
+          */
+          TreeItem item = (TreeItem) event.item;
+          TreeItem t;
+          String path=item.getText();
+          
+          t=item.getParentItem();
+          while(t!=null)
+          {
+        	  path=t.getText()+"\\"+path;
+        	  t=t.getParentItem();
+          }
+          System.out.println(path);
+          
+          //text.setText(o.get("name").toString() + " was checked.");
+        } else {
+          text.setText(event.item + " was selected");
+        }
+      }
+    });
 
     shell.open();
     while (!shell.isDisposed()) {
